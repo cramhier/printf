@@ -1,7 +1,7 @@
 #ifndef PRINTF_H
 # define PRINTF_H
 
-#include "../lib_ft/libft.h"
+#include "../libft/libft.h"
 #include <stdarg.h>  
 
 //Format Manager
