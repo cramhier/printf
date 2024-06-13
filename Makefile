@@ -2,7 +2,7 @@ NAME	= printf_ft
 CC		= gcc
 CFLAGS	= -Wall -Werror -Wextra -I ./includes/printf_ft
 
-LPATH	= ./lib_ft/
+LPATH	= ./libft/
 
 SRCS	= $(addprefix src/, main.c formats_cspdi.c format_manager.c)
 OBJS	= $(SRCS:.c=.o)
