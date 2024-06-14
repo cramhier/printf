@@ -24,54 +24,23 @@
 
 #include "../headers/printf_ft.h"
 
-int outputChar(char c)
+int	transformToHexadecimal(unsigned long long number, char *type) //recursive approach to print the digits in the right order
 {
-	ft_putchar_fd(c, 1);
-	return (1);
-}
-
-int	outputString(char *string)
-{
-	if (!string)
-	{
-		write(1, "(null)", 6);
-		return (6);
-	}
-	ft_putstr_fd(string, 1);
-	return (ft_strlen(string));
-}
-
-int	transformToHexadecimal(unsigned long long number)
-{
-	char	*hexMap;
+	char	*hexMapLow;
+	char	*hexMapUp;
 	int		index;
-	size_t	letterCount;
+	int 	letterCount;
 
-	hexMap = "0123456789abcdef";
+	hexMapLow = "0123456789abcdef";
+	hexMapUp = "0123456789ABCDEF";
 	index = 0;
 	letterCount = 0;
-	while (number > 0)
-	{
-		index = number % 16;
-		number /= 16;
-		transformToHexadecimal(number); //recalls itself to print the digits in the right order
-		outputChar(hexMap[index]);
-		break ;
-		letterCount++;
-	}
-	return (letterCount); // FIX counting mistake
-}
-
-int	outputPointer(void *pointer)
-{
-	unsigned long long	pointerInDecimal;
-	size_t				letterCount;
-
-	letterCount = 0;
-	pointerInDecimal = (unsigned long long)pointer;
-	ft_putstr_fd("0x", 1);
-	letterCount += 2 + transformToHexadecimal(pointerInDecimal);
+	if (number / 16)
+		letterCount += (transformToHexadecimal(number / 16, type));
+	index = number % 16;
+	if (!ft_strncmp(type, "low", ft_strlen("low")))
+		letterCount += outputChar(hexMapLow[index]);
+	else if (!ft_strncmp(type, "up", ft_strlen("up")))
+		letterCount += outputChar(hexMapUp[index]);
 	return (letterCount);
-}
-
-// add for % di
+} //using this function also for %x and %X

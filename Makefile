@@ -4,7 +4,7 @@ CFLAGS	= -Wall -Werror -Wextra -I ./includes/printf_ft
 
 LPATH	= ./libft/
 
-SRCS	= $(addprefix src/, main.c formats_cspdi.c format_manager.c)
+SRCS	= $(addprefix src/, main.c formats_cspdiu.c format_manager.c transformToHexadecimal.c)
 OBJS	= $(SRCS:.c=.o)
 
 all: $(NAME)

@@ -52,11 +52,11 @@ int	printf_ft(const char *string, ...)
 #include <stdio.h>
 int main()
 {
-	//char *str = "hello world!";
-	int nbr = 489639481;
-	ft_putnbr_fd(printf_ft("This is a test Output FakePrintf: %p\nNice!\n", &nbr), 1);
+	//char *nbr = NULL;
+	unsigned int nbr = INT_MAX;
+	ft_putnbr_fd(printf_ft("This is a test Output FakePrintf: %X\nNice!\n", nbr), 1);
 	ft_putstr_fd("\n\n", 1);
-	ft_putnbr_fd(printf("This is a test Output RealPrintf: %p\nNice!\n", &nbr), 1);
+	ft_putnbr_fd(printf("This is a test Output FakePrintf: %X\nNice!\n", nbr), 1);
 	return (0);
 }
 

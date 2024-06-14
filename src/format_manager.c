@@ -32,6 +32,14 @@ int	formatManager(char format, va_list *arguments)
 		return (outputString(va_arg(*arguments, char *)));
 	else if (format == 'p')
 		return (outputPointer(va_arg(*arguments, void *)));
+	else if (format == 'd' || format ==  'i')
+		return (outputNumber(va_arg(*arguments, int)));
+	else if (format == 'u')
+		return (outputUnsignedInt(va_arg(*arguments, unsigned int)));
+	else if (format == 'x')
+		return (transformToHexadecimal(va_arg(*arguments, unsigned int), "low"));
+	else if (format == 'X')
+		return (transformToHexadecimal(va_arg(*arguments, unsigned int), "up"));
 	else
-		return (0);
+		return (-1);
 }
